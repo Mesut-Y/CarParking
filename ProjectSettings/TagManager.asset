@@ -7,6 +7,8 @@ TagManager:
   - OrtaGobek
   - Platform
   - Parking
+  - Car
+  - StartPoint
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,8 @@
 public class Car : MonoBehaviour
 {
     public bool forward;
+    bool isStartPoint = false;
+    public GameObject startPoint;
     public GameObject[] wheelTrail;
     public GameManager _GM;
     public Transform parent;
@@ -16,13 +18,21 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(forward)
+        if (!isStartPoint)
+            transform.Translate(6f * Time.deltaTime * transform.forward);
+
+        if (forward)
             transform.Translate(15f * Time.deltaTime * transform.forward);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Parking"))
+        if(collision.gameObject.CompareTag("StartPoint"))
+        {
+            isStartPoint = true;
+            //
+        }
+        else if (collision.gameObject.CompareTag("Parking"))
         {
             forward = false;
             transform.SetParent(parent); //Arabanın platformda kalmasını sağlıyor.
@@ -31,6 +41,10 @@ public class Car : MonoBehaviour
             _GM.GetNewCar();
         }
         else if (collision.gameObject.CompareTag("OrtaGobek"))
+        {
+            Destroy(gameObject); //canvas çıkacak // obje havuzu eklenince false yapılacak.
+        }
+        else if (collision.gameObject.CompareTag("Car"))
         {
             Destroy(gameObject); //obje havuzu eklenince false yapılacak.
         }
