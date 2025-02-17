@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject platform_1;
     public GameObject platform_2;
 
-    public float[] donusHizlari;
+    public float[] speedsOfRotation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,8 +21,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            car.GetComponent<araba>().ilerle = true;
+            car.GetComponent<Car>().forward = true;
         }
-        platform_1.transform.Rotate(new Vector3(0,0,donusHizlari[0]),Space.Self);
+        platform_1.transform.Rotate(new Vector3(0,0, speedsOfRotation[0]),Space.Self);
     }
 }
