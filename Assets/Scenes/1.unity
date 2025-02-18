@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 66837697}
   - component: {fileID: 66837696}
   m_Layer: 5
-  m_Name: CounterOfParkedCar
+  m_Name: Win_CounterOfParkedCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 159950461}
   - component: {fileID: 159950460}
   m_Layer: 5
-  m_Name: DiamondText
+  m_Name: Lose_DiamondText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,9 +2650,9 @@ RectTransform:
   m_Children:
   - {fileID: 2097726961}
   - {fileID: 1608536556}
+  - {fileID: 1182431841}
   - {fileID: 431942750}
   - {fileID: 1878050115}
-  - {fileID: 1182431841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5610,6 +5610,8 @@ MonoBehaviour:
   - {fileID: 1044930939}
   - {fileID: 2013550017}
   howManyCar: 4
+  imageOfReadyCar: {fileID: 21300000, guid: cb26600d346f80b44b670d38fbee3f3a, type: 3}
+  numberOfCarsLeft: {fileID: 1866592511}
   imageOfCarCounter:
   - {fileID: 1150883252}
   - {fileID: 268235188}
@@ -5617,8 +5619,17 @@ MonoBehaviour:
   - {fileID: 1710909382}
   - {fileID: 1425271732}
   - {fileID: 1264158578}
-  imageOfReadyCar: {fileID: 21300000, guid: cb26600d346f80b44b670d38fbee3f3a, type: 3}
-  numberOfCarsLeft: {fileID: 1866592511}
+  Textler:
+  - {fileID: 1780260596}
+  - {fileID: 12238871}
+  - {fileID: 1259937666}
+  - {fileID: 1787621814}
+  - {fileID: 66837696}
+  - {fileID: 1751172267}
+  - {fileID: 159950460}
+  - {fileID: 1603361169}
+  - {fileID: 1197639090}
+  - {fileID: 1089637701}
   platform_1: {fileID: 4311138077682025329}
   platform_2: {fileID: 0}
   speedsOfRotation:
@@ -6294,7 +6305,7 @@ GameObject:
   - component: {fileID: 1089637702}
   - component: {fileID: 1089637701}
   m_Layer: 5
-  m_Name: CounterOfCollectedDiamond
+  m_Name: Lose_CounterOfCollectedDiamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6985,7 +6996,7 @@ GameObject:
   - component: {fileID: 1197639091}
   - component: {fileID: 1197639090}
   m_Layer: 5
-  m_Name: CounterOfParkedCar
+  m_Name: Lose_CounterOfParkedCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7242,7 +7253,7 @@ GameObject:
   - component: {fileID: 1259937667}
   - component: {fileID: 1259937666}
   m_Layer: 5
-  m_Name: DiamondText
+  m_Name: Win_DiamondText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9534,7 +9545,7 @@ GameObject:
   - component: {fileID: 1603361170}
   - component: {fileID: 1603361169}
   m_Layer: 5
-  m_Name: LevelCounter
+  m_Name: Lose_LevelCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10537,7 +10548,7 @@ GameObject:
   - component: {fileID: 1751172268}
   - component: {fileID: 1751172267}
   m_Layer: 5
-  m_Name: CounterOfCollectedDiamond
+  m_Name: Win_CounterOfCollectedDiamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11174,7 +11185,7 @@ GameObject:
   - component: {fileID: 1787621815}
   - component: {fileID: 1787621814}
   m_Layer: 5
-  m_Name: LevelCounter
+  m_Name: Win_LevelCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
