@@ -44,11 +44,13 @@ public class Car : MonoBehaviour
         {
             Destroy(gameObject); //canvas çıkacak // obje havuzu eklenince false yapılacak.
             _GM.GetNewCar();
+            _GM.GameOver();
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
             Destroy(gameObject); //obje havuzu eklenince false yapılacak.
             _GM.GetNewCar();
+            _GM.GameOver();
         }
         else if (collision.gameObject.CompareTag("Diamond"))
         {

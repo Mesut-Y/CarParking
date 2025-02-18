@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI numberOfCarsLeft;
     public GameObject[] imageOfCarCounter;
     public TextMeshProUGUI[] Textler;
+    public GameObject[] Panels;
 
     [Header("------Platform Information")]
     public GameObject platform_1;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             CarPool[indexOftheWorkingCar].SetActive(true);
         }
+  
         imageOfCarCounter[indexOftheWorkingCar-1].GetComponent<Image>().sprite = imageOfReadyCar;
         numberOfCarsLeft.text = (howManyCar - indexOftheWorkingCar).ToString();
     }
@@ -54,9 +56,30 @@ public class GameManager : MonoBehaviour
             CarPool[indexOftheWorkingCar].GetComponent<Car>().forward = true;
             indexOftheWorkingCar++;
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Panels[0].SetActive(false);
+        }
+
         platform_1.transform.Rotate(new Vector3(0,0, speedsOfRotation[0]),Space.Self);
     }
 
+    public void GameOver()
+    {
+        Panels[1].SetActive(true);
+        PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + diamondCounter); //Üstteki genel elmas sayısı gösterilir. İstenirse kaldırılabilir.
+        Textler[6].text = PlayerPrefs.GetInt("Diamond").ToString();
+        Textler[7].text = SceneManager.GetActiveScene().name;
+        Textler[8].text = (howManyCar - indexOftheWorkingCar).ToString(); // kalan arac sayısı gösterilir.
+        Textler[9].text = diamondCounter.ToString(); //Elmas sayısı gösterilir.
+        
+    }
+
+    void GameWin()
+    {
+        Panels[2].SetActive(true);
+    }
     // BELLEK YÖNETİMİ - MEMORY MANAGEMENT
 
     void CheckDefaultValue()
@@ -67,6 +90,15 @@ public class GameManager : MonoBehaviour
         }
         Textler[0].text = PlayerPrefs.GetInt("Diamond").ToString();  //Liste 0.eleman elmas sayısı
         Textler[1].text = SceneManager.GetActiveScene().name; //Liste 1. eleman level sayısı
+    }
 
+    public void WatchAdds()
+    {
+        Debug.Log("Reklam");
+    }
+
+    public void RePlay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
