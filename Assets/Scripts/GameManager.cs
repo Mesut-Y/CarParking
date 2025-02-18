@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     int indexOftheWorkingCar = 0;
     public GameObject[] imageOfCarCounter;
     public Sprite imageOfReadyCar;
+    public TextMeshProUGUI numberOfCarsLeft;
 
     [Header("------Platform Information")]
     public GameObject platform_1;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        numberOfCarsLeft.text = (howManyCar - indexOftheWorkingCar).ToString();
         for (int i = 0; i < howManyCar; i++)
         {
             imageOfCarCounter[i].SetActive(true);
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
             CarPool[indexOftheWorkingCar].SetActive(true);
         }
         imageOfCarCounter[indexOftheWorkingCar-1].GetComponent<Image>().sprite = imageOfReadyCar;
+        numberOfCarsLeft.text = (howManyCar - indexOftheWorkingCar).ToString();
     }
 
     // Update is called once per frame

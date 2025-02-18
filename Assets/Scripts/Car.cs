@@ -43,12 +43,10 @@ public class Car : MonoBehaviour
         else if (collision.gameObject.CompareTag("OrtaGobek"))
         {
             Destroy(gameObject); //canvas çıkacak // obje havuzu eklenince false yapılacak.
-            _GM.GetNewCar();
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
             Destroy(gameObject); //obje havuzu eklenince false yapılacak.
-            _GM.GetNewCar();
         }
     }
 }
