@@ -43,7 +43,10 @@ public class GameManager : MonoBehaviour
         {
             CarPool[indexOftheWorkingCar].SetActive(true);
         }
-  
+        else
+        {
+            GameWin();
+        }
         imageOfCarCounter[indexOftheWorkingCar-1].GetComponent<Image>().sprite = imageOfReadyCar;
         numberOfCarsLeft.text = (howManyCar - indexOftheWorkingCar).ToString();
     }
@@ -79,6 +82,11 @@ public class GameManager : MonoBehaviour
     void GameWin()
     {
         Panels[2].SetActive(true);
+        PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + diamondCounter);
+        Textler[2].text = PlayerPrefs.GetInt("Diamond").ToString();
+        Textler[3].text = SceneManager.GetActiveScene().name;
+        Textler[4].text = (howManyCar - indexOftheWorkingCar).ToString();
+        Textler[5].text = diamondCounter.ToString();
     }
     // BELLEK YÖNETİMİ - MEMORY MANAGEMENT
 
@@ -87,6 +95,7 @@ public class GameManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("Diamond"))
         {
             PlayerPrefs.SetInt("Diamond", 0);
+            PlayerPrefs.SetInt("Level", 0); //varsayılan index başlangıç verildi.
         }
         Textler[0].text = PlayerPrefs.GetInt("Diamond").ToString();  //Liste 0.eleman elmas sayısı
         Textler[1].text = SceneManager.GetActiveScene().name; //Liste 1. eleman level sayısı
@@ -100,5 +109,10 @@ public class GameManager : MonoBehaviour
     public void RePlay()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void NextLevel()
+    {
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
