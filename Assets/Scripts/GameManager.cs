@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
         {
             CarPool[indexOftheWorkingCar].SetActive(true);
         }
-        imageOfCarCounter[indexOftheWorkingCar].GetComponent<Image>().sprite = imageOfReadyCar;
-
+        imageOfCarCounter[indexOftheWorkingCar-1].GetComponent<Image>().sprite = imageOfReadyCar;
     }
 
     // Update is called once per frame
