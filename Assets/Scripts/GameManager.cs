@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -6,7 +7,9 @@ public class GameManager : MonoBehaviour
     [Header("------Car Settings")]
     public GameObject[] CarPool;
     public int howManyCar;
-    int IndexOftheWorkingCar = 0;
+    int indexOftheWorkingCar = 0;
+    public GameObject[] imageOfCarCounter;
+    public Sprite imageOfReadyCar;
 
     [Header("------Platform Information")]
     public GameObject platform_1;
@@ -16,19 +19,20 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //for (int i = 0; i < howManyCar; i++)
-        //{
-        //    CarPool[i].SetActive(true);
-        //}
-        CarPool[IndexOftheWorkingCar].SetActive(true);
+        for (int i = 0; i < howManyCar; i++)
+        {
+            imageOfCarCounter[i].SetActive(true);
+        }
+        CarPool[indexOftheWorkingCar].SetActive(true);
     }
 
     public void GetNewCar()
     {
-        if (IndexOftheWorkingCar < howManyCar)
+        if (indexOftheWorkingCar < howManyCar)
         {
-            CarPool[IndexOftheWorkingCar].SetActive(true);
+            CarPool[indexOftheWorkingCar].SetActive(true);
         }
+        imageOfCarCounter[indexOftheWorkingCar].GetComponent<Image>().sprite = imageOfReadyCar;
 
     }
 
@@ -37,8 +41,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            CarPool[IndexOftheWorkingCar].GetComponent<Car>().forward = true;
-            IndexOftheWorkingCar++;
+            CarPool[indexOftheWorkingCar].GetComponent<Car>().forward = true;
+            indexOftheWorkingCar++;
         }
         platform_1.transform.Rotate(new Vector3(0,0, speedsOfRotation[0]),Space.Self);
     }
