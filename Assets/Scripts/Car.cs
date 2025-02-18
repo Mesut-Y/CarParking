@@ -48,5 +48,10 @@ public class Car : MonoBehaviour
         {
             Destroy(gameObject); //obje havuzu eklenince false yapılacak.
         }
+        else if (collision.gameObject.CompareTag("Diamond"))
+        {
+            _GM.diamondCounter++;
+            collision.gameObject.SetActive(false);
+        }
     }
 }

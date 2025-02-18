@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     [Header("------Platform Information")]
     public GameObject platform_1;
     public GameObject platform_2;
-
     public float[] speedsOfRotation;
+
+    [Header("------Platform Information")]
+    public int diamondCounter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
