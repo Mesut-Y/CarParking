@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] imageOfCarCounter;
     public TextMeshProUGUI[] Textler;
     public GameObject[] Panels;
+    public GameObject[] tapToButtons;
 
     [Header("------Platform Information")]
     public GameObject platform_1;
@@ -76,7 +77,15 @@ public class GameManager : MonoBehaviour
         Textler[7].text = SceneManager.GetActiveScene().name;
         Textler[8].text = (howManyCar - indexOftheWorkingCar).ToString(); // kalan arac sayısı gösterilir.
         Textler[9].text = diamondCounter.ToString(); //Elmas sayısı gösterilir.
-        
+        Invoke("ShowLoseButton",2f);
+    }
+    void ShowLoseButton()
+    {
+        tapToButtons[0].SetActive(true); //Unity editörde 0-LosePaneldeki atandı.
+    }
+    void ShowWinButton()
+    {
+        tapToButtons[1].SetActive(true); //Unity editörde 1-WinPaneldeki atandı.
     }
 
     void GameWin()
@@ -87,6 +96,7 @@ public class GameManager : MonoBehaviour
         Textler[3].text = SceneManager.GetActiveScene().name;
         Textler[4].text = (howManyCar - indexOftheWorkingCar).ToString();
         Textler[5].text = diamondCounter.ToString();
+        Invoke("ShowWinButton", 2f);
     }
     // BELLEK YÖNETİMİ - MEMORY MANAGEMENT
 
