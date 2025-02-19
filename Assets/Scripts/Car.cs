@@ -8,6 +8,7 @@ public class Car : MonoBehaviour
     public GameObject[] wheelTrail;
     public GameManager _GM;
     public Transform parent;
+    public GameObject parcPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,13 +43,17 @@ public class Car : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("OrtaGobek"))
         {
-            Destroy(gameObject); //canvas çıkacak // obje havuzu eklenince false yapılacak.
+            _GM.explosionEffect.transform.position = parcPoint.transform.position;
+            _GM.explosionEffect.Play();
+            forward = false;
             _GM.GetNewCar();
             _GM.GameOver();
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
-            Destroy(gameObject); //obje havuzu eklenince false yapılacak.
+            _GM.explosionEffect.transform.position = parcPoint.transform.position;
+            _GM.explosionEffect.Play();
+            forward = false;
             _GM.GetNewCar();
             _GM.GameOver();
         }

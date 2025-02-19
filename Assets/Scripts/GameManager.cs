@@ -23,12 +23,16 @@ public class GameManager : MonoBehaviour
     public GameObject platform_1;
     public GameObject platform_2;
     public float[] speedsOfRotation;
+    private bool isRotation;
 
     [Header("------Level Settings")]
     public int diamondCounter;
+    public ParticleSystem explosionEffect;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        isRotation = true;
         CheckDefaultValue();
         numberOfCarsLeft.text = (howManyCar - indexOftheWorkingCar).ToString();
         for (int i = 0; i < howManyCar; i++)
@@ -65,8 +69,10 @@ public class GameManager : MonoBehaviour
         {
             Panels[0].SetActive(false);
         }
-
-        platform_1.transform.Rotate(new Vector3(0,0, speedsOfRotation[0]),Space.Self);
+        if (isRotation == true)
+        {
+            platform_1.transform.Rotate(new Vector3(0, 0, speedsOfRotation[0]), Space.Self);
+        }
     }
 
     public void GameOver()
@@ -77,6 +83,7 @@ public class GameManager : MonoBehaviour
         Textler[8].text = (howManyCar - indexOftheWorkingCar).ToString(); // kalan arac sayısı gösterilir.
         Textler[9].text = diamondCounter.ToString(); //Elmas sayısı gösterilir.
         Invoke("ShowLoseButton",2f);
+        isRotation = false;
     }
     void ShowLoseButton()
     {
