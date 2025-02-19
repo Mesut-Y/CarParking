@@ -58,4 +58,12 @@ public class Car : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("FrontParking"))
+        {
+            other.gameObject.GetComponent<FrontParking>().ParkingSet();
+        }
+    }
 }
