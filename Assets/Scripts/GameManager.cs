@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("Diamond"))
         {
             PlayerPrefs.SetInt("Diamond", 0);
-            PlayerPrefs.SetInt("Level", 0); //varsayılan index başlangıç verildi.
+            PlayerPrefs.SetInt("Level", 1); //varsayılan index başlangıç verildi.
         }
         Textler[0].text = PlayerPrefs.GetInt("Diamond").ToString();  //Liste 0.eleman elmas sayısı
         Textler[1].text = SceneManager.GetActiveScene().name; //Liste 1. eleman level sayısı
