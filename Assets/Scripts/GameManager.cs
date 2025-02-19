@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Panels[1].SetActive(true);
-        PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + diamondCounter); //Üstteki genel elmas sayısı gösterilir. İstenirse kaldırılabilir.
         Textler[6].text = PlayerPrefs.GetInt("Diamond").ToString();
         Textler[7].text = SceneManager.GetActiveScene().name;
         Textler[8].text = (howManyCar - indexOftheWorkingCar).ToString(); // kalan arac sayısı gösterilir.
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
     void GameWin()
     {
         Panels[2].SetActive(true);
-        PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + diamondCounter);
+        PlayerPrefs.SetInt("Diamond", PlayerPrefs.GetInt("Diamond") + diamondCounter); //Üstteki genel elmas sayısı gösterilir.
         Textler[2].text = PlayerPrefs.GetInt("Diamond").ToString();
         Textler[3].text = SceneManager.GetActiveScene().name;
         Textler[4].text = (howManyCar - indexOftheWorkingCar).ToString();
