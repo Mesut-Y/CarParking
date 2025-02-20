@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [Header("------Level Settings")]
     public int diamondCounter;
     public ParticleSystem explosionEffect;
+    public AudioSource[] Sounds;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         Textler[9].text = diamondCounter.ToString(); //Elmas sayısı gösterilir.
         Invoke("ShowLoseButton",2f);
         isRotation = false;
+        Sounds[1].Play();
     }
     void ShowLoseButton()
     {
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
         Textler[4].text = (howManyCar - indexOftheWorkingCar).ToString();
         Textler[5].text = diamondCounter.ToString();
         Invoke("ShowWinButton", 2f);
+        Sounds[2].Play();
     }
     // BELLEK YÖNETİMİ - MEMORY MANAGEMENT
 

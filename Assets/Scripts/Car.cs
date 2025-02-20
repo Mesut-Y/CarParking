@@ -61,6 +61,7 @@ public class Car : MonoBehaviour
         {
             _GM.diamondCounter++;
             collision.gameObject.SetActive(false);
+            _GM.Sounds[0].Play();
         }
     }
 
